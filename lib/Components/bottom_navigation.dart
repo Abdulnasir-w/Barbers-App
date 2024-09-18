@@ -1,3 +1,8 @@
+import 'package:barbers_app/Screens/Chat/chat.dart';
+import 'package:barbers_app/Screens/Main/book_appointment.dart';
+import 'package:barbers_app/Screens/Main/home_screen.dart';
+import 'package:barbers_app/Screens/Main/location_screen.dart';
+import 'package:barbers_app/Screens/More/profile.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -14,11 +19,11 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   int _selectedIndex = 0;
 
   final List<Widget> _pages = [
-    const Center(child: Text('Home Page')),
-    const Center(child: Text('Location Page')),
-    const Center(child: Text('Calendar Page')),
-    const Center(child: Text('Chat Page')),
-    const Center(child: Text('Profile Page')),
+    const HomeScreen(),
+    const LocationScreen(),
+    const Appointments(),
+    const ChatScreen(),
+    const ProfileScreen(),
   ];
 
   final List<BottomNavigationBarItem> _bottomNavigationItems = [
@@ -65,10 +70,15 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        onPageChanged: _onPageChanged,
-        children: _pages,
+      backgroundColor: Colors.white,
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          return PageView(
+            controller: _pageController,
+            onPageChanged: _onPageChanged,
+            children: _pages,
+          );
+        },
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: _bottomNavigationItems,
