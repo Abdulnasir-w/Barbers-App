@@ -236,7 +236,7 @@ class HomeScreen extends StatelessWidget {
               children: [
                 const TitleRows(title: "Popular Salon", titleData: "View All"),
                 SizedBox(
-                  height: 200, // Control the height of the scrollable area
+                  height: 200,
                   child: SingleChildScrollView(
                     child: Column(
                       children: List.generate(5, (index) {
