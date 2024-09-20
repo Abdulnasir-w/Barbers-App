@@ -1,6 +1,7 @@
+import 'package:barbers_app/Constants/colors.dart';
 import 'package:barbers_app/Screens/Chat/chat.dart';
 import 'package:barbers_app/Screens/Main/book_appointment.dart';
-import 'package:barbers_app/Screens/Main/home_screen.dart';
+import 'package:barbers_app/Screens/Main/Home%20Screen/home_screen.dart';
 import 'package:barbers_app/Screens/Main/location_screen.dart';
 import 'package:barbers_app/Screens/More/profile.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
@@ -70,7 +71,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.backgroundColor,
       body: LayoutBuilder(
         builder: (context, constraints) {
           return PageView(

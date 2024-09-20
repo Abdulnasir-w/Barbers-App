@@ -1,4 +1,4 @@
-import 'package:barbers_app/Screens/Main/home_screen.dart';
+import 'package:barbers_app/Utils/bottom_navigation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Barbers App',
-      home: HomeScreen(),
+      home: CustomBottomNavigationBar(),
     );
   }
 }

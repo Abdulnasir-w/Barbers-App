@@ -1,7 +1,6 @@
 import 'package:barbers_app/Constants/colors.dart';
 import 'package:barbers_app/Constants/fonts_style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class ServicesImageSlider extends StatelessWidget {
   final String title;
@@ -22,9 +21,9 @@ class ServicesImageSlider extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(25),
           ),
-          child: SvgPicture.asset(
+          child: Image.asset(
             assetName,
-            fit: BoxFit.contain,
+            fit: BoxFit.cover,
           ),
         ),
         const SizedBox(
