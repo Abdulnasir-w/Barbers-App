@@ -122,7 +122,7 @@ class HomeScreen extends StatelessWidget {
                     title: 'Appointments',
                   ),
                   const SizedBox(
-                    height: 7,
+                    height: 12,
                   ),
                   Container(
                     width: width,
@@ -231,23 +231,24 @@ class HomeScreen extends StatelessWidget {
                 )
               ],
             ),
-
-            // Popular Salon
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const TitleRows(title: "Popular Salon", titleData: "View All"),
-                ListView.builder(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemCount: 5,
-                  itemBuilder: (context, index) {
-                    return const PopularSalonTile(
-                      asset: "assets/Images/Salons/Green Apple.png",
-                    );
-                  },
+                SizedBox(
+                  height: 200, // Control the height of the scrollable area
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: List.generate(5, (index) {
+                        return const PopularSalonTile(
+                          asset: "assets/Images/Salons/Green Apple.png",
+                        );
+                      }),
+                    ),
+                  ),
                 ),
               ],
-            ),
+            )
           ],
         ),
       ),
