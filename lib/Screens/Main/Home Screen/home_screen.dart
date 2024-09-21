@@ -1,8 +1,10 @@
+import 'package:barbers_app/Screens/Main/Home%20Screen/appBar_icons.dart';
 import 'package:barbers_app/Screens/Main/Home%20Screen/nearest_image_slider.dart';
 import 'package:barbers_app/Constants/colors.dart';
 import 'package:barbers_app/Constants/fonts_style.dart';
 import 'package:barbers_app/Screens/Main/Home%20Screen/popular_salon_tile.dart';
 import 'package:barbers_app/Screens/Main/Home%20Screen/services_image_slider.dart';
+import 'package:barbers_app/Screens/Main/search_screen.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -44,37 +46,20 @@ class HomeScreen extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Container(
-                      width: 40,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(color: Colors.black45),
-                      ),
-                      child: Center(
-                        child: SvgPicture.asset(
-                          "assets/Icons/bell.svg",
-                          width: 18,
-                          height: 18,
-                        ),
-                      ),
+                    const AppbarIcons(
+                      assets: "assets/Icons/bell.svg",
                     ),
                     const SizedBox(width: 10),
-                    Container(
-                      width: 40,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(color: Colors.black45),
-                      ),
-                      child: Center(
-                        child: SvgPicture.asset(
-                          "assets/Icons/search.svg",
-                          width: 18,
-                          height: 18,
-                        ),
-                      ),
-                    ),
+                    AppbarIcons(
+                      assets: "assets/Icons/search.svg",
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SearchScreen()),
+                        );
+                      },
+                    )
                   ],
                 ),
               ],
@@ -174,6 +159,8 @@ class HomeScreen extends StatelessWidget {
                           assetName:
                               'assets/Images/Services Salon/Haircuts.png',
                           title: 'Hair Cuts',
+                          width: 96,
+                          height: 103,
                         ),
                         SizedBox(
                           width: 10,
@@ -182,6 +169,8 @@ class HomeScreen extends StatelessWidget {
                           assetName:
                               'assets/Images/Services Salon/Skin Care.png',
                           title: 'Skin Care',
+                          width: 96,
+                          height: 103,
                         ),
                         SizedBox(
                           width: 10,
@@ -190,6 +179,8 @@ class HomeScreen extends StatelessWidget {
                           assetName:
                               'assets/Images/Services Salon/Hair Color.png',
                           title: 'Hair Color',
+                          width: 96,
+                          height: 103,
                         ),
                         SizedBox(
                           width: 10,
@@ -197,6 +188,8 @@ class HomeScreen extends StatelessWidget {
                         ServicesImageSlider(
                           assetName: 'assets/Images/Services Salon/Massage.png',
                           title: 'Massage',
+                          width: 96,
+                          height: 103,
                         ),
                       ],
                     ),
@@ -236,7 +229,7 @@ class HomeScreen extends StatelessWidget {
               children: [
                 const TitleRows(title: "Popular Salon", titleData: "View All"),
                 SizedBox(
-                  height: 200,
+                  height: 300,
                   child: SingleChildScrollView(
                     child: Column(
                       children: List.generate(5, (index) {

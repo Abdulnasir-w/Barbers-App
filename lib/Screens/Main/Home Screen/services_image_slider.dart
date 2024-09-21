@@ -4,11 +4,15 @@ import 'package:flutter/material.dart';
 
 class ServicesImageSlider extends StatelessWidget {
   final String title;
+  final double width;
+  final double height;
   final String assetName;
   const ServicesImageSlider({
     super.key,
     required this.assetName,
     required this.title,
+    required this.width,
+    required this.height,
   });
 
   @override
@@ -16,8 +20,8 @@ class ServicesImageSlider extends StatelessWidget {
     return Column(
       children: [
         Container(
-          width: 96,
-          height: 103,
+          width: width, //96
+          height: height, //103
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(25),
           ),

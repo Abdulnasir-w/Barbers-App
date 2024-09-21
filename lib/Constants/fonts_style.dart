@@ -118,4 +118,16 @@ class AppStyles {
       ),
     );
   }
+
+  static TextStyle t5({required Color color}) {
+    return GoogleFonts.poppins(
+      fontSize: 11,
+      fontWeight: FontWeight.w400,
+      height: 1.5,
+      textStyle: TextStyle(
+        color: color,
+        decoration: TextDecoration.none,
+      ),
+    );
+  }
 }

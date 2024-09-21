@@ -69,6 +69,7 @@ flutter:
     - assets/Images/Nearest Salon/
     - assets/Images/Services Salon/
     - assets/Images/Salons/
+    - assets/Images/Popular Artist/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
