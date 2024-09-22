@@ -70,7 +70,7 @@ class AppStyles {
   // Button - SemiBold
   static TextStyle button({required Color color}) {
     return GoogleFonts.poppins(
-      fontSize: 13,
+      fontSize: 14,
       fontWeight: FontWeight.w600,
       height: 1.5,
       textStyle: TextStyle(

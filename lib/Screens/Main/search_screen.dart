@@ -1,11 +1,10 @@
 import 'package:barbers_app/Constants/colors.dart';
 import 'package:barbers_app/Constants/fonts_style.dart';
 import 'package:barbers_app/Screens/Main/Home%20Screen/services_image_slider.dart';
-import 'package:barbers_app/Screens/Main/filter.dart';
+import 'package:barbers_app/Utils/filter.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import '../../Components/custom_search_textfield.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -18,10 +17,16 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   TextEditingController searchController = TextEditingController();
   String selectedTab = 'All';
+  List<String> selectedServices = [];
+  double selectedRating = 1;
+  String selectedGender = 'All';
+  double selectedDistance = 23.0;
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       appBar: AppBar(
@@ -40,10 +45,18 @@ class _SearchScreenState extends State<SearchScreen> {
                   height: 57,
                   width: width,
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Filter()));
+                    // Call the reusable filter method
+                    Filter.showFilterBottomSheet(
+                      context,
+                      onApplyFilters: (services, rating, gender, distance) {
+                        setState(() {
+                          selectedServices = services;
+                          selectedRating = rating;
+                          selectedGender = gender;
+                          selectedDistance = distance;
+                        });
+                      },
+                    );
                   },
                   controller: searchController,
                 ),
