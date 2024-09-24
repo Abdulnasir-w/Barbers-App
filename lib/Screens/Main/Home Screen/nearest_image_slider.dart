@@ -65,14 +65,11 @@ class NearestImageSlider extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
                       "6391 Elgin St. Celina, Delaware 1...",
                       style: AppStyles.t3Small(color: AppColors.textSecondary),
-                    ),
-                    const SizedBox(
-                      width: 10,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -81,9 +78,6 @@ class NearestImageSlider extends StatelessWidget {
                           FluentIcons.location_12_regular,
                           color: AppColors.textPrimary,
                           size: 16,
-                        ),
-                        const SizedBox(
-                          width: 5,
                         ),
                         Text(
                           "5 KM",
