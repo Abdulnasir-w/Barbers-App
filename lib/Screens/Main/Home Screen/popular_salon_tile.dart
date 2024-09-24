@@ -1,7 +1,8 @@
-import 'package:barbers_app/Constants/colors.dart';
-import 'package:barbers_app/Constants/fonts_style.dart';
+import 'package:barbar/Constants/fonts_style.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
+
+import '../../../Constants/colors.dart';
 
 class PopularSalonTile extends StatelessWidget {
   final String asset;

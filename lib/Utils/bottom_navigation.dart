@@ -1,11 +1,12 @@
-import 'package:barbers_app/Constants/colors.dart';
-import 'package:barbers_app/Screens/Chat/chat.dart';
-import 'package:barbers_app/Screens/Main/book_appointment.dart';
-import 'package:barbers_app/Screens/Main/Home%20Screen/home_screen.dart';
-import 'package:barbers_app/Screens/Main/location_screen.dart';
-import 'package:barbers_app/Screens/More/profile.dart';
+import 'package:barbar/Constants/colors.dart';
+import 'package:barbar/Screens/Chat/chat.dart';
+import 'package:barbar/Screens/Main/Home%20Screen/home_screen.dart';
+import 'package:barbar/Screens/More/profile.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
+
+import '../Screens/Main/Location Screen/location_screen.dart';
+import '../Screens/Main/book_appointment.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({super.key});

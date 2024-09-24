@@ -1,4 +1,4 @@
-# barbers_app
+# barbar
 
 A new Flutter project.
 

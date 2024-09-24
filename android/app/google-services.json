@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "711046508867",
+    "project_id": "barbars-app",
+    "storage_bucket": "barbars-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711046508867:android:70a548fc675566f310bff6",
+        "android_client_info": {
+          "package_name": "com.example.barbar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9ouq0JwX2s9gbhrHluZ3x44Pl2olHNJo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711046508867:android:e1f4e450d0f3285d10bff6",
+        "android_client_info": {
+          "package_name": "com.example.barbers_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9ouq0JwX2s9gbhrHluZ3x44Pl2olHNJo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

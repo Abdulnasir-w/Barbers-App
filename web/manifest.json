@@ -1,6 +1,6 @@
 {
-    "name": "barbers_app",
-    "short_name": "barbers_app",
+    "name": "barbar",
+    "short_name": "barbar",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

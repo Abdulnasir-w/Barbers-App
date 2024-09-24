@@ -1,7 +1,8 @@
-import 'package:barbers_app/Constants/colors.dart';
-import 'package:barbers_app/Constants/fonts_style.dart';
+import 'package:barbar/Constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+import '../Constants/fonts_style.dart';
 
 class CustomSearchTextfield extends StatefulWidget {
   final String title;

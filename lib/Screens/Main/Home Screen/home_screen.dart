@@ -1,10 +1,10 @@
-import 'package:barbers_app/Screens/Main/Home%20Screen/appBar_icons.dart';
-import 'package:barbers_app/Screens/Main/Home%20Screen/nearest_image_slider.dart';
-import 'package:barbers_app/Constants/colors.dart';
-import 'package:barbers_app/Constants/fonts_style.dart';
-import 'package:barbers_app/Screens/Main/Home%20Screen/popular_salon_tile.dart';
-import 'package:barbers_app/Screens/Main/Home%20Screen/services_image_slider.dart';
-import 'package:barbers_app/Screens/Main/search_screen.dart';
+import 'package:barbar/Constants/colors.dart';
+import 'package:barbar/Constants/fonts_style.dart';
+import 'package:barbar/Screens/Main/Home%20Screen/appBar_icons.dart';
+import 'package:barbar/Screens/Main/Home%20Screen/nearest_image_slider.dart';
+import 'package:barbar/Screens/Main/Home%20Screen/popular_salon_tile.dart';
+import 'package:barbar/Screens/Main/Home%20Screen/services_image_slider.dart';
+import 'package:barbar/Screens/Main/search_screen.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
