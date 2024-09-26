@@ -5,7 +5,7 @@ import 'package:barbar/Screens/More/profile.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 
-import '../Screens/Main/Location Screen/location_screen.dart';
+import '../Screens/Main/Location Screen/near_me_screen.dart';
 import '../Screens/Main/book_appointment.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
@@ -30,23 +30,23 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
 
   final List<BottomNavigationBarItem> _bottomNavigationItems = [
     const BottomNavigationBarItem(
-      icon: Icon(FluentIcons.home_24_regular),
+      icon: Icon(FluentIcons.home_24_filled),
       label: "",
     ),
     const BottomNavigationBarItem(
-      icon: Icon(FluentIcons.location_24_regular),
+      icon: Icon(FluentIcons.location_24_filled),
       label: "",
     ),
     const BottomNavigationBarItem(
-      icon: Icon(FluentIcons.calculator_24_regular),
+      icon: Icon(FluentIcons.calendar_24_filled),
       label: "",
     ),
     const BottomNavigationBarItem(
-      icon: Icon(FluentIcons.chat_24_regular),
+      icon: Icon(FluentIcons.chat_24_filled),
       label: "",
     ),
     const BottomNavigationBarItem(
-      icon: Icon(FluentIcons.person_24_regular),
+      icon: Icon(FluentIcons.person_24_filled),
       label: "",
     ),
   ];
@@ -83,6 +83,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         },
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: AppColors.backgroundColor,
         items: _bottomNavigationItems,
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.black,

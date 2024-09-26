@@ -4,6 +4,7 @@ import 'package:barbar/Components/enable_location.dart';
 import 'package:barbar/Constants/colors.dart';
 import 'package:barbar/Constants/fonts_style.dart';
 import 'package:barbar/Providers/location_provider.dart';
+import 'package:barbar/Providers/salon_provider.dart';
 import 'package:barbar/Screens/Main/Home%20Screen/appBar_icons.dart';
 import 'package:barbar/Screens/Main/Home%20Screen/nearest_image_slider.dart';
 import 'package:barbar/Screens/Main/Home%20Screen/popular_salon_tile.dart';
@@ -21,7 +22,14 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final locationProvider = Provider.of<LocationProvider>(context);
+    final locationProvider =
+        Provider.of<LocationProvider>(context, listen: false);
+    double? userLat = locationProvider.latitude;
+    double? userLon = locationProvider.longitude;
+
+    final salonProvider = Provider.of<SalonProvider>(context, listen: false);
+
+    salonProvider.loadNearestSalons(userLat!, userLon!);
 
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
@@ -216,7 +224,7 @@ class HomeScreen extends StatelessWidget {
                   height: 3,
                 ),
                 // Nearest Salon
-                const Column(
+                Column(
                   children: [
                     TitleRows(title: "Nearest Salon", titleData: "View All"),
                     SingleChildScrollView(
@@ -224,16 +232,12 @@ class HomeScreen extends StatelessWidget {
                       child: Padding(
                         padding: EdgeInsets.symmetric(horizontal: 2.0),
                         child: Row(
-                          children: [
-                            NearestImageSlider(
-                              assetName:
-                                  'assets/Images/Nearest Salon/Bella Rinova.png',
-                            ),
-                            NearestImageSlider(
-                              assetName:
-                                  'assets/Images/Nearest Salon/Bella Rinova.png',
-                            ),
-                          ],
+                          children: salonProvider.nearestSalons.map((salon) {
+                            return NearestImageSlider(
+                              assetName: salon['image_url'] ??
+                                  'assets/placeholder.png',
+                            );
+                          }).toList(),
                         ),
                       ),
                     )

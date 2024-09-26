@@ -1,7 +1,10 @@
+import 'dart:ui';
 import 'package:barbar/Components/custom_search_textfield.dart';
+import 'package:barbar/Components/enable_location.dart';
 import 'package:barbar/Constants/colors.dart';
+import 'package:barbar/Providers/location_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 
 class LocationScreen extends StatefulWidget {
   const LocationScreen({super.key});
@@ -14,8 +17,9 @@ class _LocationScreenState extends State<LocationScreen> {
   TextEditingController searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    final location = Provider.of<LocationProvider>(context, listen: false);
     final width = MediaQuery.of(context).size.width;
-    final height = MediaQuery.of(context).size.height;
+    //final height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.backgroundColor,
@@ -39,6 +43,21 @@ class _LocationScreenState extends State<LocationScreen> {
             ],
           ),
         ),
+      ),
+      body: Stack(
+        children: [
+          if (location.isBlurred)
+            Positioned.fill(
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                child: Container(
+                  color:
+                      Colors.black.withOpacity(0.5), // semi-transparent overlay
+                ),
+              ),
+            ),
+          if (!location.isLocationEnabled) const EnableLocationContainer(),
+        ],
       ),
     );
   }
