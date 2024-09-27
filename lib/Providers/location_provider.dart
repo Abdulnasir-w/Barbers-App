@@ -25,7 +25,7 @@ class LocationProvider extends ChangeNotifier {
 
   void _startLocationCheck() {
     _locationCheckTimer =
-        Timer.periodic(const Duration(seconds: 5), (timer) async {
+        Timer.periodic(const Duration(seconds: 3), (timer) async {
       await _checkLocationStatus();
     });
   }

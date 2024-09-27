@@ -1,10 +1,10 @@
 import 'dart:convert';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:http/http.dart' as http;
 
 class SalonServices {
   final String apiKey = "AIzaSyAWgL-5xqdWuhvWubWGpZ5aFYJvZs46ozw";
+
   Future<List<Map<String, dynamic>>> fetchSalons(
       double latitude, double longitude) async {
     final String url =
@@ -21,10 +21,11 @@ class SalonServices {
             'address': result['vicinity'],
             'location': {
               'latitude': result['geometry']['location']['lat'],
-              'longitude': result['geomtry']['loaction']['lng'],
+              'longitude': result['geometry']['location']
+                  ['lng'], // Corrected typos
             },
             'rating': result['rating'],
-            'reviews': result['user_rating_total'] ?? 0,
+            'reviews': result['user_ratings_total'] ?? 0, // Corrected key
             'image_url': result['photos'] != null
                 ? 'https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${result['photos'][0]['photo_reference']}&key=$apiKey'
                 : null
@@ -37,10 +38,11 @@ class SalonServices {
     }
   }
 
-// Save Saloms to Firebase firestore
+  // Save Salons to Firebase Firestore
   Future<void> saveSalonsToFirebase(List<Map<String, dynamic>> salons) async {
-    final CollectionReference popularSalonsCollection =
-        FirebaseFirestore.instance.collection("popular_salon");
+    final CollectionReference popularSalonsCollection = FirebaseFirestore
+        .instance
+        .collection("popular_salons"); // Ensure consistency in collection name
 
     for (var salon in salons) {
       try {
@@ -56,10 +58,7 @@ class SalonServices {
     final CollectionReference popularSalonsCollection =
         FirebaseFirestore.instance.collection("popular_salons");
 
-    QuerySnapshot snapshot = await popularSalonsCollection
-        .orderBy('rating', descending: true)
-        .orderBy('reviews', descending: true)
-        .get();
+    QuerySnapshot snapshot = await popularSalonsCollection.get();
 
     List<Map<String, dynamic>> salons = [];
 

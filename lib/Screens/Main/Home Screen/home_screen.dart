@@ -17,11 +17,21 @@ import 'package:provider/provider.dart';
 
 import 'title_rows.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    _loadSalons();
+  }
+
+  void _loadSalons() {
     final locationProvider =
         Provider.of<LocationProvider>(context, listen: false);
     double? userLat = locationProvider.latitude;
@@ -29,8 +39,17 @@ class HomeScreen extends StatelessWidget {
 
     final salonProvider = Provider.of<SalonProvider>(context, listen: false);
 
-    salonProvider.loadNearestSalons(userLat!, userLon!);
+    // Defer the loading of salons to after the build completes
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      salonProvider.loadNearestSalons(userLat, userLon);
+    });
+  }
 
+  @override
+  Widget build(BuildContext context) {
+    final salonProvider = Provider.of<SalonProvider>(context, listen: false);
+    final locationProvider =
+        Provider.of<LocationProvider>(context, listen: false);
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Stack(
@@ -233,6 +252,7 @@ class HomeScreen extends StatelessWidget {
                         padding: EdgeInsets.symmetric(horizontal: 2.0),
                         child: Row(
                           children: salonProvider.nearestSalons.map((salon) {
+                            print("Image Url :::: ${salon['image_url']}");
                             return NearestImageSlider(
                               assetName: salon['image_url'] ??
                                   'assets/placeholder.png',

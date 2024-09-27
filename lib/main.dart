@@ -1,4 +1,5 @@
 import 'package:barbar/Providers/location_provider.dart';
+import 'package:barbar/Providers/salon_provider.dart';
 import 'package:barbar/Utils/bottom_navigation.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => LocationProvider()),
+        ChangeNotifierProvider(create: (_) => SalonProvider()),
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,

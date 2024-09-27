@@ -44,14 +44,14 @@ class SalonProvider with ChangeNotifier {
     }
   }
 
-  Future<void> loadNearestSalons(double userLat, double userLon) async {
+  Future<void> loadNearestSalons(double? userLat, double? userLon) async {
     await loadPopularSalonsFromFirebase();
 
     nearestSalons = popularSalons.where((salon) {
       double salonLat = salon['latitude'];
       double salonLon = salon['longitude'];
       double distance =
-          distanceCalculation(userLat, userLon, salonLat, salonLon);
+          distanceCalculation(userLat!, userLon!, salonLat, salonLon);
       return distance <= 5;
     }).toList();
     notifyListeners();
